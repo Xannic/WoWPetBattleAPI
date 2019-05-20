@@ -33,7 +33,7 @@ namespace PetBattleBackEnd
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
             services.AddSignalR();
             services.AddCors(o => o.AddPolicy("All", b => b.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials()));
         }
@@ -55,7 +55,7 @@ namespace PetBattleBackEnd
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseCors("All");
-            app.UseMvc();
+
             app.UseSignalR(routes =>
             {
                 routes.MapHub<ChatHub>("/chatHub");
